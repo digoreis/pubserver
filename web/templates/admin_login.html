@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Login</title>
+</head>
+<body>
+  <h2>Admin Login</h2>
+  {{if .error}}<div style="color:red">{{.error}}</div>{{end}}
+  <form method="post">
+    <label>Password: <input type="password" name="password" /></label>
+    <button type="submit">Login</button>
+  </form>
+</body>
+</html>

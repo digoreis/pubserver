@@ -1,0 +1,1 @@
+Scripts utilitários podem ser adicionados aqui (ex: migração de dados, setup inicial).

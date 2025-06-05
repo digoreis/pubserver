@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tokens | Pubserver Admin</title>
+</head>
+<body>
+  <h1>Access Tokens</h1>
+  <a href="/admin/tokens/create">Create new token</a> | <a href="/admin/">Dashboard</a> | <a href="/admin/logout">Logout</a>
+  <table border="1" cellpadding="6" cellspacing="0">
+    <tr>
+      <th>ID</th>
+      <th>Value</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Active?</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+    {{range .tokens}}
+    <tr>
+      <td>{{.ID}}</td>
+      <td><code>{{.Value}}</code></td>
+      <td>{{.Type}}</td>
+      <td>{{.Description}}</td>
+      <td>{{if .Active}}Yes{{else}}No{{end}}</td>
+      <td>{{.CreatedAt | formatUnixTime}}</td>
+      <td>
+        <a href="/admin/tokens/{{.ID}}/toggle">{{if .Active}}Disable{{else}}Enable{{end}}</a> |
+        <a href="/admin/tokens/{{.ID}}/delete" onclick="return confirm('Remove token?')">Remove</a>
+      </td>
+    </tr>
+    {{end}}
+  </table>
+  {{if .new}}
+    <div style="color:green;">New token created: <code>{{.new}}</code></div>
+  {{end}}
+</body>
+</html>

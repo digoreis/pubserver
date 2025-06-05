@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pubserver Admin Dashboard</title>
+</head>
+<body>
+  <h1>Pubserver Admin Dashboard</h1>
+  <a href="/admin/tokens">Manage Tokens</a> | <a href="/admin/logout">Logout</a>
+  <h2>Recent Activity</h2>
+  <table border="1" cellpadding="6" cellspacing="0">
+    <tr>
+      <th>Event</th>
+      <th>Package</th>
+      <th>Version</th>
+      <th>Date/Time (UTC)</th>
+    </tr>
+    {{range .recent}}
+    <tr>
+      <td>{{.Event}}</td>
+      <td>{{.Package}}</td>
+      <td>{{.Version}}</td>
+      <td>{{.Time}}</td>
+    </tr>
+    {{end}}
+  </table>
+  <h2>Download Counts</h2>
+  <table border="1" cellpadding="6" cellspacing="0">
+    <tr>
+      <th>Package</th>
+      <th>Downloads</th>
+    </tr>
+    {{range $pkg, $count := .downloads}}
+    <tr>
+      <td>{{$pkg}}</td>
+      <td>{{$count}}</td>
+    </tr>
+    {{end}}
+  </table>
+  <h2>Publish Counts</h2>
+  <table border="1" cellpadding="6" cellspacing="0">
+    <tr>
+      <th>Package</th>
+      <th>Publishes</th>
+    </tr>
+    {{range $pkg, $count := .publishes}}
+    <tr>
+      <td>{{$pkg}}</td>
+      <td>{{$count}}</td>
+    </tr>
+    {{end}}
+  </table>
+</body>
+</html>

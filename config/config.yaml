@@ -1,0 +1,7 @@
+# Exemplo de configuração
+server:
+  port: 8080
+
+gitlab:
+  url: "https://gitlab.example.com"
+  token: "YOUR_PRIVATE_TOKEN"

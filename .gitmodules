@@ -1,0 +1,3 @@
+[submodule "vendor/tree-sitter-dart"]
+	path = vendor/tree-sitter-dart
+	url = git@github.com:smacker/go-tree-sitter.git
